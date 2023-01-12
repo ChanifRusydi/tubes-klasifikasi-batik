@@ -1,6 +1,7 @@
 import cv2
 import tensorflow as tf
 import os
+from PIL import Image
 #import keras tensorflow
 gpus = tf.config.experimental.list_physical_devices('GPU')
 if gpus:
@@ -17,13 +18,13 @@ model = tf.keras.models.load_model('model.h5')
 model.summary()
 capture=cv2.VideoCapture(0)
 while True:
-        _, frame = video.read()
+        _, frame = capture.read()
 
         #Convert the captured frame into RGB
         im = Image.fromarray(frame, 'RGB')
 
         #Resizing into dimensions you used while training
-        im = im.resize((1))
+        im = im.resize((128,128))
         img_array = np.array(im)
 
         #Expand dimensions to match the 4D Tensor shape.
