@@ -2,6 +2,7 @@ import cv2
 import tensorflow as tf
 import os
 from PIL import Image
+import numpy as np
 #import keras tensorflow
 gpus = tf.config.experimental.list_physical_devices('GPU')
 if gpus:
